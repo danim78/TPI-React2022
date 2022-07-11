@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Navbar, Container, } from 'react-bootstrap'
+import logo from '../logoRSN.png';
 
 function Header(props){
     const [titulo, setTitulo] = useState('Buscador de noticias')
@@ -10,10 +11,10 @@ function Header(props){
             <Navbar.Brand href="#home">
                 <img
                 alt=""
-                src="src/components/logoRSN.png"
+                src={logo}
                 width="150"
                 height="50"
-                className="d-inline-block"
+                className="d-inline-block align-"
                 />{' '}
             Buscador de noticias
             </Navbar.Brand>

@@ -7,12 +7,15 @@ import NewsCard from './NewsCard'
 function NewsList(){
 
     const [loading, setLoading] = useState(false)
+    const [busqueda, setBusqueda] = useState('bitcoin')
     const [page, setPage] = useState(1)
     const [datos, setDatos] = useState([])
     const [error, setError] = useState(null)
+    
+
 
     useEffect(() => {
-        axios.get(`https://newsapi.org/v2/everything?q=bitcoin&apiKey=API_KEY&page=${page}&pageSize=10&language=es`)
+        axios.get(`https://newsapi.org/v2/everything?q=${busqueda}&apiKey=API_KEY=${page}&pageSize=10&language=es`)
         .then(response => {
             setDatos([...datos, ...response.data.articles])
             setLoading(false)

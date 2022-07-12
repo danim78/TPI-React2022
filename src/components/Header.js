@@ -14,9 +14,8 @@ function Header(props){
                 src={logo}
                 width="150"
                 height="50"
-                className="d-inline-block align-"
-                />{' '}
-            Buscador de noticias
+                className="d-inline-block align-bottom"
+                />{titulo}
             </Navbar.Brand>
             </Container>
         </Navbar>

@@ -23,4 +23,4 @@ function NewsCard({ item }) {
   )
 }
 
-export default NewsCard;
+export default NewsCard

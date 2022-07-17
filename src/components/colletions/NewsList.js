@@ -14,7 +14,9 @@ function NewsList({busqueda, onSubmit}) {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(3);
   const [datos, setDatos] = useState([]);
+  const [totalResults, setTotalResults] = useState(null);
   const [error, setError] = useState(null);
+
 
   // https://newsapi.org/v2/everything?q=bitcoin&apiKey=0561e0a335d84221ae241cf50f789998&page=1&pageSize=2
 
@@ -28,6 +30,7 @@ function NewsList({busqueda, onSubmit}) {
       )
       .then((response) => {
         setDatos([...datos, ...response.data.articles]);
+        setTotalResults(...datos, response.data.totalResults)
         setLoading(false);
       });
   }, [busqueda, page]);
@@ -51,6 +54,7 @@ function NewsList({busqueda, onSubmit}) {
 
   return (
     <>
+    <h7>Está viendo {pageSize} noticias de {totalResults} resultados</h7>
       <div className="py-5">
         <div className="container">
           <div className="row hidden-md-up">

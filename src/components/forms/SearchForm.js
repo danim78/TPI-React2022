@@ -36,7 +36,7 @@ function SearchForm({busqueda, onSubmit}) {
         <input
           placeholder="Ingresar palabra a buscar"
           type="text"
-          {...register("busqueda", { required: true}, { minLegth: 2 })}
+          {...register("busqueda", { required: true, minLegth: 2 })}
         />
         {errors.busqueda && <span>Término requerido</span>}
         <input type="submit"/>

@@ -8,9 +8,10 @@ function NewsCard({ item }) {
           <Container>
             <Row>
               <Col xs={9}>        
-                <Card.Title>{item.title}</Card.Title>
+                <Card.Title><a href={item.url} target="_blank">{item.title}</a></Card.Title>
                 <Card.Text>{item.description}</Card.Text>
-                <Button variant="primary" href={item.url}>Ver noticia</Button>
+                <Card.Text>Publicado el: {item.publishedAt}</Card.Text>
+                {/* <Button variant="primary" href={item.url}>Ver noticia</Button> */}
               </Col> 
               <Col >
                 <Card.Img variant="right" src={item.urlToImage} width="150" height="150"/>

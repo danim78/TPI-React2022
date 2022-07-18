@@ -1,8 +1,7 @@
-import './App.css';
-import Header from './components/Header';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import NewsCard from './components/colletions/NewsCard';
-import NewsList from './components/colletions/NewsList';
+import "./App.css";
+import Header from "./components/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NewsList from "./components/collections/NewsList";
 
 function App() {
   return (

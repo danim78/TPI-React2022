@@ -1,16 +1,15 @@
 import "./App.css";
-import Header from "./components/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NewsList from "./components/collections/NewsList";
+import BuscarNoticiasPagina from "./pages/BuscarNoticiasPagina";
 
 function App() {
   return (
-    <div className="App">
-      <>
-        <Header></Header>
-        <NewsList></NewsList>
-      </>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<BuscarNoticiasPagina />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

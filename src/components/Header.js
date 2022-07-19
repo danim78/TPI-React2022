@@ -1,20 +1,15 @@
-import logo from "../logoRSN.png";
+import logo from "../logo.png";
 import { useState } from "react";
-import { Navbar, Container, Button, Form, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import Buscador from "./general/buscador";
 
 function Header(props) {
   const [titulo, setTitulo] = useState("Buscador de noticias");
-  const [busqueda, setBusqueda] = useState("");
-
-  const handleChange = (e) => {
-    setBusqueda(e.target.value);
-    console.log(e.target.value);
-  };
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container text-align="center">
-        <Navbar.Brand href="home">
+        <Navbar.Brand href="/">
           <img
             alt="logo"
             src={logo}
@@ -31,17 +26,7 @@ function Header(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           ></Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Buscar..."
-              value={busqueda}
-              className="me-2"
-              aria-label="Search"
-              onChange={handleChange}
-            />
-            <Button variant="btn btn-primary">Buscar</Button>
-          </Form>
+          <Buscador onBuscar={props.onBuscar}/>
         </Navbar.Collapse>
       </Container>
     </Navbar>

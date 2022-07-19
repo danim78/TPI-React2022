@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Alert, Button } from "react-bootstrap";
 import axios from "axios";
-import NewsCard from "./NewsCard";
+import NewsCard from "../NewsCard";
 
-function NewsList() {
+function NewsList(props) {
+  console.log(props.busqueda);
   const [loading, setLoading] = useState(false);
   const [busqueda, setBusqueda] = useState("argentina");
   const [apiKey, setApikey] = useState("0561e0a335d84221ae241cf50f789998");
@@ -44,7 +45,7 @@ function NewsList() {
           <div className="row hidden-md-up">
             {datos && datos.length > 0 ? (
               datos.map((item, index) => {
-                const key = `item-${index}`
+                const key = `item-${index}`;
                 return (
                   <div className="row-md-4" key={key}>
                     <NewsCard item={item}></NewsCard>

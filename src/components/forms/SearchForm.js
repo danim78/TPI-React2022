@@ -3,12 +3,7 @@ import { useForm } from "react-hook-form";
 
 function SearchForm({busqueda, onSubmit}) {
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
   console.log(errors);
   console.log(busqueda);
@@ -32,11 +27,12 @@ function SearchForm({busqueda, onSubmit}) {
   return (
     <>
       <h1>{busqueda}</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="p-3" onSubmit={handleSubmit(onSubmit)}>
         <input
           placeholder="Ingresar palabra a buscar"
           type="text"
-          {...register("busqueda", { required: true, minLegth: 2 })}
+          {...register("busqueda", { required: true, minLength: {value: 2} })}
+          /* ref={register({ minLength: 2 })} */
         />
         {errors.busqueda && <span>Término requerido</span>}
         <input type="submit"/>

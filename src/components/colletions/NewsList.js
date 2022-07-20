@@ -30,7 +30,7 @@ function NewsList({busqueda, onSubmit}) {
       )
       .then((response) => {
         setDatos([...datos, ...response.data.articles]);
-        setTotalResults(...datos, response.data.totalResults)
+        setTotalResults(response.data.totalResults)
         setLoading(false);
       });
   }, [busqueda, page]);
@@ -54,14 +54,14 @@ function NewsList({busqueda, onSubmit}) {
 
   return (
     <>
-    <h7>Está viendo {pageSize} noticias de {totalResults} resultados</h7>
-      <div className="py-5">
+    <div className="mb-3 d-flex flex-row p-2 bg-primary text-white" >Está viendo {pageSize * page} noticias de {totalResults} resultados</div>
+      <div >
         <div className="container">
           <div className="row hidden-md-up">
             {datos && datos.length > 0 ? (
-              datos.map((item) => {
+              datos.map((item, index) => {
                 return (
-                  <div className="row-md-4">
+                  <div key={index} className="row-md-4">
                     <NewsCard item={item}></NewsCard>
                   </div>
                 );

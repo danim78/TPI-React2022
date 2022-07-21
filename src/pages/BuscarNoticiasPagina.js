@@ -1,9 +1,10 @@
-import Header from "../components/Header";
 import { useState } from "react";
+import Header from "../components/Header";
 import NewsList from "../components/collections/NewsList";
+import Buscador from "../components/general/buscador";
 
 function BuscarNoticiasPagina() {
-  const [busqueda, setBusqueda] = useState("");
+  const [busqueda, setBusqueda] = useState("bitcoin");
 
   const onBuscar = (criterio) => {
     setBusqueda(criterio);
@@ -11,7 +12,8 @@ function BuscarNoticiasPagina() {
 
   return (
     <>
-      <Header onBuscar={onBuscar}/>
+      <Header />
+      <Buscador onBuscar={onBuscar} />
       <NewsList busqueda={busqueda} />
     </>
   );

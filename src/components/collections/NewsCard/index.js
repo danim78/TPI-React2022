@@ -1,18 +1,17 @@
-import { Card, Button, Container, Col, Row } from "react-bootstrap";
+import { Card, Container, Col, Row } from "react-bootstrap";
+import "./NewsCard.css";
 
 function NewsCard({ item }) {
   return (
     <>
+    <div className="row-md-4">
       <Card border="dark" style={{ width: "80rem" }}>
         <Card.Body>
           <Container>
-            <Row>
+            <Row className="card-noticia">
               <Col xs={9}>
-                <Card.Title>{item.title}</Card.Title>
+                <Card.Title id="card-title"><a href={item.url} target="_blank">{item.title}</a></Card.Title>
                 <Card.Text>{item.description}</Card.Text>
-                <Button variant="dark" href={item.url}>
-                  Ver noticia
-                </Button>
               </Col>
               <Col>
                 <Card.Img
@@ -25,6 +24,7 @@ function NewsCard({ item }) {
           </Container>
         </Card.Body>
       </Card>
+      </div>
     </>
   );
 }

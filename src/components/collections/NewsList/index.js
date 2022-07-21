@@ -1,76 +1,44 @@
 import { useEffect, useState } from "react";
-import { Alert, Button } from "react-bootstrap";
-import axios from "axios";
-import NewsCard from "../NewsCard";
+import { getNoticias } from "../../../services/noticias";
+import Loading from "../../general/loading";
+import Paginado from "../../general/paginado";
+import Noticia from "../Noticia";
 
-function NewsList(props) {
-  console.log(props.busqueda);
+// const Noticias = (noticias) => {
+//   return (
+//     <section className="lista-noticias">
+//       {noticias && noticias.map((val, index) => <Noticia item={val} key={index} />)}
+//     </section>
+//   );
+// };
+
+const NewsList = ({ busqueda }) => {
   const [loading, setLoading] = useState(false);
-  const [busqueda, setBusqueda] = useState("argentina");
-  const [apiKey, setApikey] = useState("0561e0a335d84221ae241cf50f789998");
-  const [page, setPage] = useState(1);
-  const [pageSize, setPagesize] = useState(2);
-  const [datos, setDatos] = useState([]);
-  const [error, setError] = useState(null);
+  const [noticias, setNoticias] = useState([]);
+  // const [page, setPage] = useState(1);
+  // const [pageSize, setPagesize] = useState(2);
+  // const [error, setError] = useState(null);
 
-  // https://newsapi.org/v2/everything?q=bitcoin&apiKey=0561e0a335d84221ae241cf50f789998&page=1&pageSize=2
-
-  const peticionGet = async () => {
-    axios
-      .get(
-        `https://newsapi.org/v2/everything?q=${busqueda}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}&language=es`
-      )
-      .then((response) => {
-        setDatos([...datos, ...response.data.articles]);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-      });
+  const getNoticiasDesdeServicio = async (busqueda) => {
+    setLoading(true);
+    const respuesta = await getNoticias(busqueda);
+    setNoticias(respuesta.articles);
+    setLoading(false);
   };
 
   useEffect(() => {
-    peticionGet();
-  }, [page]);
+    getNoticiasDesdeServicio(busqueda);
+  }, [busqueda]);
 
-  const cargarMas = (e) => {
-    e.preventDefault();
-    setPage(page + 1);
-  };
-
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <>
-      <div className="py-5">
-        <div className="container">
-          <div className="row hidden-md-up">
-            {datos && datos.length > 0 ? (
-              datos.map((item, index) => {
-                const key = `item-${index}`;
-                return (
-                  <div className="row-md-4" key={key}>
-                    <NewsCard item={item}></NewsCard>
-                  </div>
-                );
-              })
-            ) : (
-              <Alert>No hay elementos</Alert>
-            )}
-          </div>
-          {loading ? (
-            <Button variant="success" disabled={true}>
-              {" "}
-              Cargando ...
-            </Button>
-          ) : (
-            <Button variant="bt btn-lg btn-dark" onClick={cargarMas}>
-              {" "}
-              Cargar más
-            </Button>
-          )}
-        </div>
-      </div>
+      <Noticia noticias={noticias} />
+      <Paginado />
     </>
   );
-}
+};
 
 export default NewsList;

@@ -1,8 +1,8 @@
-import logo from "../logo.png";
+import logo from "../../../logo.png";
 import { useState } from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container } from "react-bootstrap";
 
-function Header(props) {
+function Header() {
   const [titulo, setTitulo] = useState("Buscador de noticias");
 
   return (

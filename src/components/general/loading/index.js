@@ -1,9 +1,22 @@
+import "./Loading.css";
+
 function Loading() {
   return (
     <>
-      <div className="container">
+      <div className="container" id="loading">
         <div className="mb-3 mt-5">
-          <div className="text-center">Carganding...</div>
+          <div className="text-center">
+            <div className="lds-roller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import NewsList from "./colletions/NewsList";
 import SearchForm from "./forms/SearchForm";
 import Header from "./Header";
+import Paginator from "./Paginator";
 
 function Layout(props){
 
@@ -29,7 +30,7 @@ function Layout(props){
             {/* {props.children} */}
             <SearchForm busqueda={busqueda} onSubmit={onSubmit}></SearchForm>
             <Home busqueda={busqueda} onSubmit={onSubmit}></Home>
-            
+                        
         </>
     )
 }

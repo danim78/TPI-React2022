@@ -6,11 +6,11 @@ function NewsCard({ item }) {
       <Card border="primary" style={{ width: '78rem' }}>      
         <Card.Body>
           <Container>
-            <Row>
+            <Row className= "d-flex">
               <Col xs={9}>        
                 <Card.Title><a href={item.url} target="_blank">{item.title}</a></Card.Title>
                 <Card.Text>{item.description}</Card.Text>
-                <Card.Text>Publicado el: {item.publishedAt}</Card.Text>
+                <Card.Text>Publicado el: {new Date(item.publishedAt).toLocaleString()}</Card.Text>
                 {/* <Button variant="primary" href={item.url}>Ver noticia</Button> */}
               </Col> 
               <Col >
@@ -23,5 +23,4 @@ function NewsCard({ item }) {
     </>
   )
 }
-
 export default NewsCard

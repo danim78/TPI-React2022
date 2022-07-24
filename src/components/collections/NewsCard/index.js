@@ -5,7 +5,7 @@ function NewsCard({ item }) {
   return (
     <>
       <div className="row">
-        <Card border="dark" style={{ width: "75rem" }}>
+        <Card border="dark">
           <Card.Body>
             <Container>
               <Row className="card-noticia">
@@ -16,6 +16,10 @@ function NewsCard({ item }) {
                     </a>
                   </Card.Title>
                   <Card.Text>{item.description}</Card.Text>
+                  <Card.Text>
+                    Publicado el: {new Date(item.publishedAt).toLocaleDateString()} a las 
+                    {new Date(item.publishedAt).toLocaleTimeString()}
+                  </Card.Text>
                 </Col>
                 <Col xs={3}>
                   <Card.Img variant="right" src={item.urlToImage} />

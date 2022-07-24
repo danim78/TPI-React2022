@@ -1,14 +1,25 @@
-/* .d-flex {
-  width: 100% !important;
-  background-color: tomato;
+.form-control {
+  min-width: 20rem;
+  width: 40%;
+  margin-bottom: 0.5rem;
 }
 
-.form-control {
-  display: flex;
-  direction: row;
-  width: 300px;
+.container-buscador {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  flex-wrap: nowrap;
 }
 
 #boton-buscar {
-  width: 300px;
-} */
+  min-width: 20rem;
+  width: 40%;
+}
+
+.message-container{
+  width: 20rem;
+  text-align: center;
+  padding-top: 1rem;
+  color: red;
+}

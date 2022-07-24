@@ -4,45 +4,73 @@ import "./Buscador.css";
 
 function Buscador(props) {
   const [busquedaText, setBusquedaText] = useState("");
+  const [messageSize, setMessageSize] = useState(false);
+  const [messageRequired, setMessageRequired] = useState(false);
 
   const onBusquedaChange = (evento) => {
     setBusquedaText(evento.target.value);
   };
 
   const onBuscarClick = () => {
-    if (busquedaText.length > 3) {
+    setMessageSize(true);
+    setMessageRequired(true);
+    if (busquedaText.length > 0) {
+      setMessageRequired(false);
+    }
+    if (busquedaText.length > 2) {
       props.onBuscar(busquedaText);
+      setMessageSize(false);
+      setMessageRequired(false);
     }
   };
 
   const onBuscarKey = (evento) => {
-    if (busquedaText.length > 2) {
-      if (evento.keyCode === 13) {
-        evento.preventDefault();
+    if (evento.keyCode === 13) {
+      evento.preventDefault();
+      setMessageRequired(false);
+      if (busquedaText.length < 1) {
+        setMessageRequired(true);
+      }
+      setMessageSize(true);
+      if (busquedaText.length > 2) {
         props.onBuscar(busquedaText);
+        setMessageSize(false);
+        setMessageRequired(false);
       }
     }
   };
 
   return (
     <>
-      <div className="container">
-        <div className="mt-5 mb-4">
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Buscar..."
-              value={busquedaText}
-              className="me-2"
-              aria-label="Search"
-              onChange={onBusquedaChange}
-              onKeyDown={onBuscarKey}
-            />
-            <Button variant="btn btn-primary" id="boton-buscar" onClick={onBuscarClick}>
-              Buscar
-            </Button>
-          </Form>
-        </div>
+      <div className="container mt-5 mb-4">
+        <Form className="d-flex container-buscador">
+          <Form.Control
+            className="me-0"
+            type="search"
+            placeholder="Buscar..."
+            value={busquedaText}
+            aria-label="Search"
+            onChange={onBusquedaChange}
+            onKeyDown={onBuscarKey}
+          />
+          <Button
+            variant="btn btn-primary"
+            id="boton-buscar"
+            onClick={onBuscarClick}
+          >
+            Buscar
+          </Button>
+          {messageRequired && (
+            <div className="message-container">
+              <span>- Ingrese término de busqueda requerido.</span>
+            </div>
+          )}
+          {messageSize && (
+            <div className="message-container">
+              <span>- Ingrese como mínimo 3 carácteres.</span>
+            </div>
+          )}
+        </Form>
       </div>
     </>
   );

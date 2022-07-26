@@ -1,3 +1,15 @@
-.pagination { 
-    justify-content: center;
+.pagination {
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.page-link{
+    color: #000;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: rgb(33, 37, 41);
+  border-color: rgb(33, 37, 41);
 }

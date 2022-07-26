@@ -8,6 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<BuscarNoticiasPagina />} />
+        <Route path="/buscador" element={<BuscarNoticiasPagina />} />
       </Routes>
     </BrowserRouter>
   );

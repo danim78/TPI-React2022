@@ -43,6 +43,7 @@ const NewsList = ({ busqueda }) => {
         noticias={noticias}
         pageSize={pageSize}
         totalResults={totalResults}
+        maxResults={maxResults}
       />
       <Paginado
         page={page}

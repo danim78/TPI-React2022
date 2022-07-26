@@ -18,9 +18,9 @@ function Paginado(props) {
     props.setPage(props.totalPages);
   };
 
-  if (props.maxResults === true) {
+  if (props.maxResults) {
     return (
-      <Pagination className="container mb-4 mt-2">
+      <Pagination className="container">
         <Pagination.First onClick={setFirstPage} />
         <Pagination.Item onClick={setPagePrevious}>
           {props.page - 1}
@@ -33,7 +33,7 @@ function Paginado(props) {
 
   if (props.page > 1) {
     return (
-      <Pagination className="container mb-4 mt-2">
+      <Pagination className="container">
         <Pagination.First onClick={setFirstPage} />
         <Pagination.Item onClick={setPagePrevious}>
           {props.page - 1}
@@ -47,12 +47,23 @@ function Paginado(props) {
     );
   }
 
+  if(props.page === 1 && props.totalPages) {
+
+    return (
+      <Pagination className="container">
+        <Pagination.First disabled />
+        <Pagination.Item active>{props.page}</Pagination.Item>
+        <Pagination.Item onClick={setPageNext}>{props.page + 1}</Pagination.Item>
+        <Pagination.Last onClick={setLastPage} />
+      </Pagination>
+    );
+  }
+
   return (
-    <Pagination className="container mb-4 mt-2">
+    <Pagination className="container">
       <Pagination.First disabled />
       <Pagination.Item active>{props.page}</Pagination.Item>
-      <Pagination.Item onClick={setPageNext}>{props.page + 1}</Pagination.Item>
-      <Pagination.Last onClick={setLastPage} />
+      <Pagination.Last disabled />
     </Pagination>
   );
 }

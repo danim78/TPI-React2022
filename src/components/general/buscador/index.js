@@ -42,7 +42,6 @@ function Buscador(props) {
 
   return (
     <>
-      <div className="container mt-5 mb-4">
         <Form className="d-flex container-buscador">
           <Form.Control
             className="me-0"
@@ -71,7 +70,6 @@ function Buscador(props) {
             </div>
           )}
         </Form>
-      </div>
     </>
   );
 }

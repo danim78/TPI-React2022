@@ -42,10 +42,10 @@ function Buscador(props) {
 
   return (
     <>
-        <Form className="d-flex container-buscador">
+        <Form className="d-flex container-buscador" role='search'>
           <Form.Control
             className="me-0"
-            type="search"
+            type="input"
             placeholder="Buscar..."
             value={busquedaText}
             aria-label="Search"

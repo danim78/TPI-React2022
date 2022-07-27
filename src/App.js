@@ -5,7 +5,7 @@ import BuscarNoticiasPagina from "./pages/BuscarNoticiasPagina";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter text='noticias'>
       <Routes>
         <Route path="/" element={<BuscarNoticiasPagina />} />
         <Route path="/buscador" element={<BuscarNoticiasPagina />} />

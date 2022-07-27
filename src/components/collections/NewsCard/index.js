@@ -13,7 +13,7 @@ function NewsCard({ item }) {
 
   return (
     <>
-      <div className="row">
+      <div className="row" role='card'>
         <Card border="dark">
           <Card.Body>
             <Container>

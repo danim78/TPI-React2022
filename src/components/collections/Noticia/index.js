@@ -22,7 +22,7 @@ function Noticia({ noticias, pageSize, totalResults, maxResults }) {
 
   return (
     <>
-      <div className="container noticia">
+      <div className="container noticia" role='news'>
         <div>{messageResults()}</div>
         {noticias && noticias.length > 0 ? (
           noticias.map((item, index) => {

@@ -2,18 +2,19 @@ import { Card, Container, Col, Row } from "react-bootstrap";
 import "./NewsCard.css";
 
 function NewsCard({ item }) {
-  const getPublished = (date) => {
-    let dia = date.slice(8, 10);
-    let mes = date.slice(5, 7);
-    let año = date.slice(0, 4);
-    let hora = date.slice(11, 16);
+  const { DateTime } = require("luxon");
 
-    return `Publicado el: ${dia}-${mes}-${año} a las ${hora} hs`;
+  const getPublished = (date) => {
+    let dia = DateTime.fromISO(date).setZone("UTC").toFormat("dd-MM-yyyy");
+
+    let hora = DateTime.fromISO(date).setZone("UTC").toFormat("HH:mm");
+
+    return `Publicado el: ${dia} a las ${hora} hs`;
   };
 
   return (
     <>
-      <div className="row" role='card'>
+      <div className="row" role="card">
         <Card border="dark">
           <Card.Body>
             <Container>

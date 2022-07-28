@@ -1,3 +1,24 @@
+*{
+  font-size: 1.1rem;
+}
+
 .container-body {
   min-height: calc(100vh - 3rem - 6rem);
+  
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(33,37,41,0.3); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: rgb(33,37,41,0.8); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(33,37,41); 
 }

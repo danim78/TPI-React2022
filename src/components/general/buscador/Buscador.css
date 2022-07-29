@@ -12,8 +12,7 @@
   align-items: center;
   align-content: center;
   flex-wrap: nowrap;
-  margin-bottom: 2rem;
-  margin-top: 3rem;
+  padding-bottom: 2rem;
 }
 
 #boton-buscar {

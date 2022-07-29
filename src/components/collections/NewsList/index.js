@@ -3,6 +3,7 @@ import { getNoticias } from "../../../services/noticias";
 import Loading from "../../general/loading";
 import Paginado from "../../general/paginado";
 import Noticia from "../Noticia";
+import ScrollUp from "../../general/ScrollUp";
 
 const NewsList = ({ busqueda }) => {
   const [loading, setLoading] = useState(false);
@@ -11,6 +12,7 @@ const NewsList = ({ busqueda }) => {
   const [pageSize, setPageSize] = useState(10);
   const [totalResults, setTotalResults] = useState(0);
   const [maxResults, setMaxResults] = useState(false);
+
   const totalPages = Math.round(totalResults / pageSize);
 
   const getNoticiasDesdeServicio = async (busqueda, page, pageSize) => {
@@ -36,7 +38,7 @@ const NewsList = ({ busqueda }) => {
   if (loading) {
     return <Loading />;
   }
-  
+
   return (
     <>
       <Noticia
@@ -51,6 +53,7 @@ const NewsList = ({ busqueda }) => {
         totalPages={totalPages}
         maxResults={maxResults}
       />
+      <ScrollUp />
     </>
   );
 };

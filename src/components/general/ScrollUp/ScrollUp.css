@@ -9,6 +9,7 @@
     background: rgba(52, 58, 64, 0.3);
     line-height: 50px;
     font-size: 1.2rem;
+    cursor: pointer;
   }
   .scroll-to-top:focus,
   .scroll-to-top:hover {

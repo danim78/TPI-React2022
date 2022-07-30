@@ -3,6 +3,7 @@
 }
 
 .card-noticia {
+  min-width: 14rem;
   align-items: center;
   background-color: rgba(33,37,41, 0.1);
   padding:15px

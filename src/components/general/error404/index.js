@@ -8,7 +8,7 @@ function Error404() {
   return (
     <>
       <Header />
-      <div className="container-body">
+      <div className="container container-404">
         <Alert variant="danger">
           <Alert.Heading>Error 404: Página no encontrada!</Alert.Heading>
           <p>

@@ -14,12 +14,14 @@ function BuscarNoticiasPagina() {
 
   return (
     <>
-      <Header />
       <div className="container-body">
+        <Header />
+        <div className="container-contenido">
         <Buscador onBuscar={onBuscar} />
         <NewsList busqueda={busqueda} />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

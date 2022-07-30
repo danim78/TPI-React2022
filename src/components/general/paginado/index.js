@@ -20,7 +20,7 @@ function Paginado(props) {
 
   if (props.maxResults) {
     return (
-      <Pagination className="container">
+      <Pagination>
         <Pagination.First onClick={setFirstPage} />
         <Pagination.Item onClick={setPagePrevious}>
           {props.page - 1}
@@ -32,8 +32,20 @@ function Paginado(props) {
   }
 
   if (props.page > 1) {
+    if (props.page === props.totalPages) {
+      return (
+        <Pagination>
+          <Pagination.First onClick={setFirstPage} />
+          <Pagination.Item onClick={setPagePrevious}>
+            {props.page - 1}
+          </Pagination.Item>
+          <Pagination.Item active>{props.page}</Pagination.Item>
+          <Pagination.Last disabled />
+        </Pagination>
+      );
+    }
     return (
-      <Pagination className="container">
+      <Pagination>
         <Pagination.First onClick={setFirstPage} />
         <Pagination.Item onClick={setPagePrevious}>
           {props.page - 1}
@@ -47,20 +59,21 @@ function Paginado(props) {
     );
   }
 
-  if(props.page === 1 && props.totalPages) {
-
+  if (props.page === 1 && props.totalPages) {
     return (
-      <Pagination className="container">
+      <Pagination>
         <Pagination.First disabled />
         <Pagination.Item active>{props.page}</Pagination.Item>
-        <Pagination.Item onClick={setPageNext}>{props.page + 1}</Pagination.Item>
+        <Pagination.Item onClick={setPageNext}>
+          {props.page + 1}
+        </Pagination.Item>
         <Pagination.Last onClick={setLastPage} />
       </Pagination>
     );
   }
 
   return (
-    <Pagination className="container">
+    <Pagination>
       <Pagination.First disabled />
       <Pagination.Item active>{props.page}</Pagination.Item>
       <Pagination.Last disabled />

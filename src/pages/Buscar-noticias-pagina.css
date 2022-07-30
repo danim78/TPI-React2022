@@ -1,5 +1,5 @@
-.container-body {
-  min-height: calc(100vh - 3rem - 6rem);
+.container-contenido{
+  min-width: 20rem;
 }
 
 ::-webkit-scrollbar {

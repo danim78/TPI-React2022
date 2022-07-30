@@ -42,34 +42,34 @@ function Buscador(props) {
 
   return (
     <>
-        <Form className="d-flex container-buscador" role='search'>
-          <Form.Control
-            className="me-0"
-            type="input"
-            placeholder="Buscar..."
-            value={busquedaText}
-            aria-label="Search"
-            onChange={onBusquedaChange}
-            onKeyDown={onBuscarKey}
-          />
-          <Button
-            variant="btn btn-primary"
-            id="boton-buscar"
-            onClick={onBuscarClick}
-          >
-            Buscar
-          </Button>
-          {messageRequired && (
-            <div className="message-container">
-              <span>- Ingrese término de busqueda requerido.</span>
-            </div>
-          )}
-          {messageSize && (
-            <div className="message-container">
-              <span>- Ingrese como mínimo 3 carácteres.</span>
-            </div>
-          )}
-        </Form>
+      <Form className=" container-buscador" role="search">
+        <Form.Control
+          className="me-0"
+          type="input"
+          placeholder="Buscar..."
+          value={busquedaText}
+          aria-label="Search"
+          onChange={onBusquedaChange}
+          onKeyDown={onBuscarKey}
+        />
+        <Button
+          variant="btn btn-primary"
+          id="boton-buscar"
+          onClick={onBuscarClick}
+        >
+          Buscar
+        </Button>
+        {messageRequired && (
+          <div className="message-container">
+            <span>- Ingrese término de busqueda requerido.</span>
+          </div>
+        )}
+        {messageSize && (
+          <div className="message-container">
+            <span>- Ingrese como mínimo 3 carácteres.</span>
+          </div>
+        )}
+      </Form>
     </>
   );
 }

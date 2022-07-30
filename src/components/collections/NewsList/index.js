@@ -13,7 +13,14 @@ const NewsList = ({ busqueda }) => {
   const [totalResults, setTotalResults] = useState(0);
   const [maxResults, setMaxResults] = useState(false);
 
-  const totalPages = Math.round(totalResults / pageSize);
+  const seteartotalPages = () => {
+    if (totalResults % pageSize === 0) {
+      return Math.trunc(totalResults / pageSize);
+    }
+    return Math.trunc(totalResults / pageSize) + 1;
+  };
+
+  const totalPages = seteartotalPages();
 
   const getNoticiasDesdeServicio = async (busqueda, page, pageSize) => {
     setLoading(true);
@@ -42,6 +49,7 @@ const NewsList = ({ busqueda }) => {
   return (
     <>
       <Noticia
+        page={page}
         noticias={noticias}
         pageSize={pageSize}
         totalResults={totalResults}
@@ -50,8 +58,10 @@ const NewsList = ({ busqueda }) => {
       <Paginado
         page={page}
         setPage={setPage}
+        totalResults={totalResults}
         totalPages={totalPages}
         maxResults={maxResults}
+        pageSize={pageSize}
       />
       <ScrollUp />
     </>

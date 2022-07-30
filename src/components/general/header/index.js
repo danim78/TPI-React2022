@@ -1,11 +1,8 @@
 import logo from "../../../logo.png";
-import { useState } from "react";
 import { Navbar, Container } from "react-bootstrap";
 import "./Header.css"
 
 function Header() {
-  const [titulo, setTitulo] = useState("Buscador de noticias");
-
   return (
     <header>
       <Navbar bg="dark" variant="dark" id="page-top" >
@@ -18,7 +15,7 @@ function Header() {
               height="32rem"
               className="d-inline-block align-bottom"
             />{" "}
-            {titulo}
+            Buscador de noticias
           </Navbar.Brand>
         </Container>
       </Navbar>

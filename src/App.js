@@ -1,17 +1,18 @@
-import './App.css';
-import Header from './components/Header';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import NewsCard from './components/colletions/NewsCard';
-import NewsList from './components/colletions/NewsList';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import BuscarNoticiasPagina from "./pages/BuscarNoticiasPagina";
+import Error404 from "./components/general/error404";
 
 function App() {
   return (
-    <div className="App">
-      <>
-        <Header></Header>
-        <NewsList></NewsList>
-      </>
-    </div>
+    <BrowserRouter text='noticias'>
+      <Routes>
+        <Route path="/" element={<BuscarNoticiasPagina />} />
+        <Route path="/buscador" element={<BuscarNoticiasPagina />} />
+        <Route path="*" element={<Error404 />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

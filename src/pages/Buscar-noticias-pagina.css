@@ -1,0 +1,19 @@
+.container-contenido{
+  min-width: 20rem;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(33, 37, 41, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(33, 37, 41, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(33, 37, 41);
+}

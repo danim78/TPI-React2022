@@ -1,0 +1,10 @@
+.container-404 {
+  min-height: calc(100vh - 8rem);
+  display: flex;
+  flex-direction: column;
+  padding : 3rem 1.8rem 0 1.8rem;
+}
+
+.alert-danger {
+  width: 100%;
+}
